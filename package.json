@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
+    "bootstrap": "^4.4.1",
+    "bootstrap-social": "^5.1.1",
     "expo": "~37.0.3",
     "navigation": "^5.2.0",
     "react": "^16.9.0",
