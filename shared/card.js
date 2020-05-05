@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         borderRadius: 6, 
         // how much it comes away from screen
         elevation: 3,
-        backgroundColor: '#fff',
+        backgroundColor: '#7AFFC1',
         // gives shadow, offset = how much to right & down
         shadowOffset: {width: 1, height: 1},
         shadowColor: '#333',
