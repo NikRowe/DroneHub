@@ -1,8 +1,17 @@
 import React from 'react'
+import { StyleSheet, Image, ImageBackground } from 'react-native'
 import { createStackNavigator } from 'react-navigation-stack'
 import Home from '../screens/home'
 import ReviewDetails from '../screens/reviewDetails'
+import { MaterialIcons } from '@expo/vector-icons'
 import Header from '../shared/header'
+
+
+
+const openMenu = (navigation) => () => {
+    navigation.openDrawer()
+}
+
 
 
 // Page Navigation Header setup - title & styles & navigation(1st ojb listed will be default screen) //
@@ -11,7 +20,15 @@ const screens = {
         screen: Home,
         navigationOptions: ({ navigation }) => {
             return {
-                headerTitle: () => <Header  navigation ={navigation} title='Drone Hub' />,
+                headerBackground: (
+                    <Image source={require('../assets/HeaderBG.png')} style={{width: 500, height: 100}} /> 
+                ),
+                headerLeft: <MaterialIcons
+                    name='menu'
+                    size={28}
+                    onPress={openMenu(navigation)}
+                    style={styles.icon}
+                />,
             }
         }
     },
@@ -22,6 +39,7 @@ const screens = {
         }
     }
 }
+
 
 const HomeStack = createStackNavigator(
     screens,
@@ -39,5 +57,13 @@ const HomeStack = createStackNavigator(
             }
         }
     })
+
+const styles = StyleSheet.create({
+    icon: {
+        marginLeft: 10,
+        color: '#7AFFC1',
+        fontSize: 30
+    }
+})
 
 export default HomeStack;
