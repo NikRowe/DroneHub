@@ -21,10 +21,10 @@ const styles = StyleSheet.create({
         elevation: 3,
         backgroundColor: '#7AFFC1',
         // gives shadow, offset = how much to right & down
-        shadowOffset: {width: 1, height: 1},
-        shadowColor: '#333',
-        shadowOpacity: 0.3,
-        shadowRadius: 2,
+        shadowOffset: {width: 2, height: 2},
+        shadowColor: '#CC4E94',
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
         marginHorizontal: 4,
         marginVertical: 6
 

@@ -5,17 +5,27 @@ export const globalStyles = StyleSheet.create({
     container: {
         padding: 20,
         flex: 1,
+        backgroundColor: '#879799'
     },
     titleText: {
         fontFamily: 'bangers-regular',
         fontSize: 25,
-        color: '#333'
+        color: '#CC4E94'
     },
     paragraph: {
         marginVertical: 8,
         lineHeight: 20,
-    }
+    },
+    input: {
+        borderWidth: 2,
+        backgroundColor: '#CDCDCD',
+        borderColor: '#FFBABE',
+        padding: 10,
+        fontSize: 18,
+        borderRadius: 6,
+    },
 })
+
 
 
 // images styled to rating //
