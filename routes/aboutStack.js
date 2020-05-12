@@ -16,7 +16,7 @@ const screens = {
         navigationOptions: ({ navigation }) => {
             return {
                 headerBackground: (
-                    <Image source={require('../assets/HeaderBG.png')} style={{ width: '100%'}} /> 
+                    <Image source={require('../assets/HeaderBG.png')} style={styles.headerBackground} /> 
                 ),
                 headerLeft: <MaterialIcons
                     name='menu'
@@ -44,8 +44,11 @@ const styles = StyleSheet.create({
     icon: {
         marginLeft: 10,
         color: '#7AFFC1',
-        fontSize: 24
+        fontSize: 30
     },
+    headerBackground: {
+        width: 500, height: 100
+    }
 })
 
 export default AboutStack;
