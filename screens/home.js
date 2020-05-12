@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, FlatList, TouchableOpacity, Modal } from 'react-native';
+import { StyleSheet, View, Text, FlatList, TouchableOpacity, Modal, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { globalStyles } from '../styles/global'
 import Card from '../shared/card'
 import { MaterialIcons } from '@expo/vector-icons'
@@ -16,20 +16,30 @@ export default function Home({ navigation }) {
         { title: 'Diatone Gt239', rating: 4, body: 'lorem ipsum', key: '3' },
     ])
 
+    // this adds new review "review param" to the existing review state "currentReviews" then closes the Review Modal with "setModalOpen(false)" //
+    const addReview = (review) => {
+        review.key = reviews.length.toString() + 1
+        setReviews((currentReviews) => {
+            return [review, ...currentReviews]
+        })
+        setModalOpen(false)
+    }
+
     return (
         <View style={globalStyles.container}>
 
             <Modal visible={modalOpen}>
-                <View style={styles.modalContent} animationType='slide'>
-                    <MaterialIcons
-                        name='close'
-                        size={24}
-                        style={{...styles.modalToggle, ...styles.modalClose}}
-                        onPress={() => setModalOpen(false)}
-                    />
-                    <Text>Hello From the Modal :)</Text>
-                    <ReviewForm />
-                </View>
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                    <View style={styles.modalContent} animationType='slide'>
+                        <MaterialIcons
+                            name='close'
+                            size={24}
+                            style={{ ...styles.modalToggle, ...styles.modalClose }}
+                            onPress={() => setModalOpen(false)}
+                        />
+                        <ReviewForm addReview={addReview} />
+                    </View>
+                </TouchableWithoutFeedback>
             </Modal>
 
             <MaterialIcons

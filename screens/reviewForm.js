@@ -3,7 +3,7 @@ import { StyleSheet, Text, Button, View, TextInput, TouchableOpacity } from 'rea
 import { globalStyles } from '../styles/global.js'
 import { Formik } from 'formik'
 
-export default function ReviewForm() {
+export default function ReviewForm({ addReview }) {
 
     return (
         <View style={globalStyles.container}>
@@ -11,8 +11,9 @@ export default function ReviewForm() {
                 // initialValues sets the beginning values in the form. //
                 initialValues={{ title: '', body: '', rating: '' }}
                 // when we submit we get all the filled out options as the "values" prop
-                onSubmit={(values) => {
-                    console.log(values)
+                onSubmit={(values, actions) => {
+                    actions.resetForm()
+                    addReview(values)
                 }}
             >
                 {(props) => (
