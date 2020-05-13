@@ -35,7 +35,7 @@ const screens = {
     ReviewDetails: {
         screen: ReviewDetails,
         navigationOptions: {
-            title: 'Review Details'
+            title: 'Review Details',
         }
     }
 }
@@ -48,7 +48,7 @@ const HomeStack = createStackNavigator(
         defaultNavigationOptions: {
             headerTintColor: '#7AFFC1',
             headerStyle: {
-                backgroundColor: '#879799',
+                backgroundColor: '#CC4E94',
                 height: 100
             },
             headerTitleStyle: {
