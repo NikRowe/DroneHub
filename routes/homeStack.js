@@ -1,10 +1,9 @@
 import React from 'react'
 import { StyleSheet, Image, ImageBackground } from 'react-native'
 import { createStackNavigator } from 'react-navigation-stack'
-import Home from '../screens/home'
+import Reviews from '../screens/reviews'
 import ReviewDetails from '../screens/reviewDetails'
 import { MaterialIcons } from '@expo/vector-icons'
-import Header from '../shared/header'
 
 
 
@@ -16,10 +15,11 @@ const openMenu = (navigation) => () => {
 
 // Page Navigation Header setup - title & styles & navigation(1st ojb listed will be default screen) //
 const screens = {
-    Home: {
-        screen: Home,
+    Reviews: {
+        screen: Reviews,
         navigationOptions: ({ navigation }) => {
             return {
+                title: 'Drone Hub',
                 headerBackground: (
                     <Image source={require('../assets/HeaderBG.png')} style={styles.headerBackground} /> 
                 ),

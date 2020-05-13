@@ -6,7 +6,7 @@ import { MaterialIcons } from '@expo/vector-icons'
 import ReviewForm from './reviewForm'
 
 // What's on the Home screen below navigation header. //
-export default function Home({ navigation }) {
+export default function Reviews({ navigation }) {
 
     // Sets initial state (hard coded) //
     const [modalOpen, setModalOpen] = useState(false)

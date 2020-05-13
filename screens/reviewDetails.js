@@ -20,7 +20,7 @@ export default function ReviewDetails({ navigation }) {
                 </Text>
 
                 <View style={styles.rating}>
-                    <Text> Drone Hub rating: </Text>
+                    <Text style={{fontWeight: 'bold'}}> Drone Hub rating: </Text>
                     <Rating
                         readonly
                         fractions={1}
@@ -44,14 +44,15 @@ const styles = StyleSheet.create({
         paddingTop: 16,
         marginTop: 16,
         borderTopWidth: 2,
-        borderColor: '#FFBABE'
+        borderColor: '#FFBABE',
 
     },
     reviewTitle: {
         fontWeight: 'bold',
         fontStyle: 'italic',
         fontSize: 25,
-        marginBottom: 20
+        marginBottom: 20, 
+        color: '#CC4E94'
     },
     reviewBody: {
         textAlign: 'center'
