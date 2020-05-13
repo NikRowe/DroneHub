@@ -2,6 +2,24 @@ import React from 'react'
 import { StyleSheet, Text, Button, View, TextInput, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../styles/global.js'
 import { Formik } from 'formik'
+import * as yup from 'yup';
+
+// this sets up form validation via an addon called "Yup" - here we set the key value pairs to the initialValues in the form then use yup .notation to add validation. 
+const reviewSchema = yup.object({
+    // i.e. - title must be a string, is required, & must be minimum of 4 characters. //
+    title: yup.string()
+        .required()
+        .min(4),
+    body: yup.string()
+        .required()
+        .min(8),
+    rating: yup.string()
+        .required()
+        // test allows us to run a custom test - fist param is what we call the test "is-num-1-5", the 2nd param is the message to the user, the 3rd param is a method parsing the value as an integer then running logic to ensure 1-5. //
+        .test('is-num-1-5', 'Rating must be a number 1-5', (val) => {
+            return parseInt(val) < 6 && parseInt(val) > 0
+        })
+})
 
 export default function ReviewForm({ addReview }) {
 
@@ -10,6 +28,7 @@ export default function ReviewForm({ addReview }) {
             <Formik
                 // initialValues sets the beginning values in the form. //
                 initialValues={{ title: '', body: '', rating: '' }}
+                validationSchema={reviewSchema}
                 // when we submit we get all the filled out options as the "values" prop
                 onSubmit={(values, actions) => {
                     actions.resetForm()
