@@ -43,15 +43,24 @@ export default function ReviewForm({ addReview }) {
                             // onChangeText runs whenever the user enters an input//
                             onChangeText={props.handleChange('title')}
                             value={props.values.title}
+                            // onBlur allows realtime validation - user see's the error asa they leave the field if not correct instead of waiting to push submit. 
+                            onBlur={props.handleBlur('title')}
                         />
+                        {/* displays the error message provided by Yup addon. props.touched.title is how we don't display the error until the user attempts to submit. The field must be "touched"  */}
+                        <Text style={globalStyles.errorText}>{props.touched.title && props.errors.title}</Text>
+
                         <TextInput
-                            multiline
+                            multiline 
+                            minHeight ={60}
                             style={globalStyles.input}
                             placeholder='Review Body'
                             // onChangeText runs whenever the user enters an input//
                             onChangeText={props.handleChange('body')}
                             value={props.values.body}
-                        />
+                            onBlur={props.handleBlur('body')}
+                            />
+                        <Text style={globalStyles.errorText}>{props.touched.body && props.errors.body}</Text>
+                        
                         <TextInput
                             style={globalStyles.input}
                             placeholder='Rating (1-5)'
@@ -59,13 +68,16 @@ export default function ReviewForm({ addReview }) {
                             onChangeText={props.handleChange('rating')}
                             value={props.values.rating}
                             keyboardType='numeric'
-                        />
+                            onBlur={props.handleBlur('rating')}
+                            />
+                        <Text style={globalStyles.errorText}>{props.touched. rating && props.errors.rating}</Text>
+
                         {/* props.handleSubmit runs the "onSubmit" function prop inside the <Formik> tag */}
                         {/* TouchableOpacity is used for IOS instead of button so that you can use custom styles. You may need an ?: here to determine the device then render <TouchOpac> or <Button> for android */}
                         <TouchableOpacity
                             onPress={props.handleSubmit}
                             style={styles.submitButton}
-                        >
+                            >
                             <Text style={styles.submitText}>SUBMIT</Text>
                         </TouchableOpacity>
                     </View>
