@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text, FlatList, TouchableOpacity, Modal, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import React, { useState, useRef, Component } from 'react';
+import { StyleSheet, View, Text, FlatList, TouchableOpacity, Modal, TouchableWithoutFeedback, Keyboard, } from 'react-native';
 import { globalStyles } from '../styles/global'
 import Card from '../shared/card'
 import { MaterialIcons } from '@expo/vector-icons'
 import ReviewForm from './reviewForm'
+import * as Animatable from 'react-native-animatable'
 
 // What's on the Home screen below navigation header. //
 export default function Reviews({ navigation }) {
@@ -43,6 +44,7 @@ export default function Reviews({ navigation }) {
         setModalOpen(false)
     }
 
+
     return (
         <View style={globalStyles.container}>
             <Modal
@@ -67,23 +69,35 @@ export default function Reviews({ navigation }) {
                 </TouchableWithoutFeedback>
             </Modal>
 
-            <MaterialIcons
-                name='add'
-                size={26}
-                style={styles.modalToggle}
-                onPress={() => setModalOpen(true)}
-            />
+            <Animatable.View
+                animation='bounceInRight'
+                duration={3000}
+                delay={500}
+            >
+                <MaterialIcons
+                    name='add'
+                    size={26}
+                    style={styles.modalToggle}
+                    onPress={() => setModalOpen(true)}
+                />
+            </Animatable.View>
 
             {/* Displays state data visually as list = *item* is a default prop */}
-            < FlatList
+            <FlatList
                 data={reviews}
                 renderItem={({ item }) => (
                     // onPress is taking us to the respective page about the item that was tapped/clicked via Navigator //
-                    <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails', item)}>
-                        <Card>
-                            <Text style={globalStyles.titleText}> {item.title} </Text>
-                        </Card>
-                    </TouchableOpacity>
+                    <Animatable.View
+                        animation='bounceInLeft'
+                        duration={3000}
+                        delay={1000}
+                    >
+                        <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails', item)}>
+                            <Card>
+                                <Text style={globalStyles.titleText}> {item.title} </Text>
+                            </Card>
+                        </TouchableOpacity>
+                    </Animatable.View>
                 )
                 }
             />

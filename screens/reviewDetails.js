@@ -3,6 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import { globalStyles, images } from '../styles/global'
 import Card from '../shared/card'
 import { Rating, PricingCard } from 'react-native-elements'
+import * as Animatable from 'react-native-animatable'
 
 export default function ReviewDetails({ navigation }) {
 
@@ -15,15 +16,24 @@ export default function ReviewDetails({ navigation }) {
     return (
         <View style={globalStyles.container}>
             <Card>
-                <Text style={styles.reviewTitle}>
-                    {title}
-                </Text>
+                <Animatable.View
+                    animation='fadeInDownBig'
+                    duration={3000}
+                >
+                    <Text style={styles.reviewTitle}>
+                        {title}
+                    </Text>
 
-                <Text style={styles.reviewBody}>
-                    "{body}"
-                </Text>
-
-                <View style={styles.rating}>
+                    <Text style={styles.reviewBody}>
+                        "{body}"
+                    </Text>
+                </Animatable.View>
+                <Animatable.View
+                    animation='fadeIn'
+                    duration={3000}
+                    delay={1500}
+                    style={styles.rating}
+                >
                     <Text style={{ fontWeight: 'bold' }}> Drone Hub rating: </Text>
                     <Rating
                         readonly
@@ -34,24 +44,33 @@ export default function ReviewDetails({ navigation }) {
                         type='custom'
                         ratingImage={images.ratings[1]}
                     />
-                </View>
-                <PricingCard
-                    title='BNF'
-                    price={price}
-                    info={
-                        [
-                            'pyrodrone',
-                            'betafpv',
-                            'newbeedrone'
-                        ]
-                    }
-                    color='#CC4E94'
-                    button={{ title: 'Get in the Air', icon: 'flight-takeoff' }}
-                    onButtonPress={() => (console.log('PricingButtonPress:', `This will take you to the linked website of your choice above to purchase for ${price}` ))}
-                    wrapperStyle={{ backgroundColor: '#4EC0CC',  }}
-                />
+                </Animatable.View>
+                <Animatable.View
+                    animation='fadeInUpBig'
+                    duration={3000}
+                    delay={300}
+                >
+                    <PricingCard
+                        title='BNF'
+                        price={price}
+                        info={
+                            [
+                                'pyrodrone',
+                                'betafpv',
+                                'newbeedrone'
+                            ]
+                        }
+                        color='#CC4E94'
+                        button={{ title: 'Get in the Air', icon: 'flight-takeoff' }}
+                        onButtonPress={() => (console.log('PricingButtonPress:', `This will take you to the linked website of your choice above to purchase for ${price}`))}
+                        wrapperStyle={{
+                            backgroundColor: '#4EC0CC',
+                        }}
+
+                    />
+                </Animatable.View>
             </Card>
-        </View>
+        </View >
     )
 }
 
