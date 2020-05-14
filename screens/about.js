@@ -17,7 +17,7 @@ export default function About() {
                     delay={500}
                 >
                     <Text style={{ ...styles.aboutText, ...styles.aboutTitle }}>
-                        This React-Native App displays:
+                        This React-Native App:
                     </Text>
                     <Divider style={{ backgroundColor: '#FFBABE', height: 3 }} />
                 </Animatable.View>
@@ -27,7 +27,7 @@ export default function About() {
                     duration={3000}
                     delay={500}
                 >
-                    {bullet} Reviews,
+                    {bullet} Displays reviews,
                         </Animatable.Text>
                 <Animatable.Text
                     style={styles.aboutText}
