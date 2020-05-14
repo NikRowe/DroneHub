@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Alert } from 'react-native';
 import { globalStyles, images } from '../styles/global'
 import Card from '../shared/card'
 import { Rating, PricingCard } from 'react-native-elements'
@@ -18,7 +18,7 @@ export default function ReviewDetails({ navigation }) {
             <Card>
                 <Animatable.View
                     animation='fadeInDownBig'
-                    duration={3000}
+                    duration={2000}
                 >
                     <Text style={styles.reviewTitle}>
                         {title}
@@ -30,8 +30,8 @@ export default function ReviewDetails({ navigation }) {
                 </Animatable.View>
                 <Animatable.View
                     animation='fadeIn'
-                    duration={3000}
-                    delay={1500}
+                    duration={2000}
+                    delay={1000}
                     style={styles.rating}
                 >
                     <Text style={{ fontWeight: 'bold' }}> Drone Hub rating: </Text>
@@ -47,12 +47,12 @@ export default function ReviewDetails({ navigation }) {
                 </Animatable.View>
                 <Animatable.View
                     animation='fadeInUpBig'
-                    duration={3000}
-                    delay={300}
+                    duration={2000}
+                    delay={200}
                 >
                     <PricingCard
                         title='BNF'
-                        price={price}
+                        price={'$' + price}
                         info={
                             [
                                 'pyrodrone',
@@ -62,7 +62,22 @@ export default function ReviewDetails({ navigation }) {
                         }
                         color='#CC4E94'
                         button={{ title: 'Get in the Air', icon: 'flight-takeoff' }}
-                        onButtonPress={() => (console.log('PricingButtonPress:', `This will take you to the linked website of your choice above to purchase for ${price}`))}
+                        onButtonPress={() => (
+                            Alert.alert(
+                                'Pricing Button Press:',
+                                `In production this button will take you to the website selected above to purchase for $${price}`,
+                                [
+                                    {
+                                        text: 'Cancel',
+                                        style: 'cancel',
+                                        onPress: () => console.log('Cancel Pressed')
+                                    },
+                                ],
+                            )
+
+
+                            // console.log('PricingButtonPress:', `This will take you to the linked website of your choice above to purchase for ${price}`)
+                        )}
                         wrapperStyle={{
                             backgroundColor: '#4EC0CC',
                         }}
