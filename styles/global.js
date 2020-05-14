@@ -5,7 +5,7 @@ export const globalStyles = StyleSheet.create({
     container: {
         padding: 20,
         flex: 1,
-        backgroundColor: '#879799'
+        backgroundColor: '#4EC0CC'
     },
     titleText: {
         fontFamily: 'bangers-regular',
@@ -29,7 +29,7 @@ export const globalStyles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 10,
         marginTop: 6,
-        textAlign: 'center'
+        textAlign: 'center',
     }
 })
 

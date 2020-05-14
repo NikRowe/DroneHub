@@ -16,7 +16,7 @@ export default function ReviewDetails({ navigation }) {
                 </Text>
 
                 <Text style={styles.reviewBody}>
-                    {navigation.getParam('body')}
+                    "{navigation.getParam('body')}"
                 </Text>
 
                 <View style={styles.rating}>
@@ -49,12 +49,13 @@ const styles = StyleSheet.create({
     },
     reviewTitle: {
         fontWeight: 'bold',
-        fontStyle: 'italic',
         fontSize: 25,
         marginBottom: 20, 
         color: '#CC4E94'
     },
     reviewBody: {
-        textAlign: 'center'
+        fontStyle: 'italic',
+        textAlign: 'center',
+        fontFamily: 'indieFlower-regular'
     }
 })

@@ -42,16 +42,23 @@ export default function Reviews({ navigation }) {
 
     return (
         <View style={globalStyles.container}>
-
-            <Modal visible={modalOpen}>
+            <Modal
+                visible={modalOpen}
+                animationType='slide'
+            >
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                    <View style={styles.modalContent} animationType='slide'>
-                        <MaterialIcons
-                            name='close'
-                            size={24}
-                            style={{ ...styles.modalToggle, ...styles.modalClose }}
-                            onPress={() => setModalOpen(false)}
-                        />
+                    <View style={styles.modalContent}>
+                        <View style={styles.modalTitle}>
+                            <View style={styles.closeIcon}>
+                                <MaterialIcons
+                                    name='close'
+                                    size={24}
+                                    style={{ ...styles.modalToggle, ...styles.modalClose }}
+                                    onPress={() => setModalOpen(false)}
+                                />
+                            </View>
+                            <Text style={styles.modalTitleText}>New Review</Text>
+                        </View>
                         <ReviewForm addReview={addReview} />
                     </View>
                 </TouchableWithoutFeedback>
@@ -59,7 +66,7 @@ export default function Reviews({ navigation }) {
 
             <MaterialIcons
                 name='add'
-                size={24}
+                size={26}
                 style={styles.modalToggle}
                 onPress={() => setModalOpen(true)}
             />
@@ -88,17 +95,31 @@ const styles = StyleSheet.create({
         color: '#CC4E94',
         backgroundColor: '#7AFFC1',
         borderColor: '#FFBABE',
-        padding: 10,
+        padding: 7,
         borderRadius: 10,
         alignSelf: 'center',
-        overflow: 'hidden'
+        overflow: 'hidden',
     },
     modalClose: {
-        marginTop: 35,
-        marginBottom: 0
+        marginBottom: 0,
+        marginRight: 10,
+        marginLeft: 10
     },
     modalContent: {
         flex: 1,
-        backgroundColor: '#6c6e73'
+        backgroundColor: '#4EC0CC',
+    },
+    modalTitleText: {
+        fontWeight: 'bold',
+        color: '#CC4E94',
+        fontSize: 50,
+        marginLeft: 20,
+        fontFamily: 'indieFlower-regular'
+    },
+    modalTitle: {
+        marginTop: 35,
+        alignItems: 'center',
+        flexDirection: 'row'
     }
+
 })

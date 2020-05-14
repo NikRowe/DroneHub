@@ -3,7 +3,6 @@ import { StyleSheet, Image } from 'react-native'
 import { createStackNavigator } from 'react-navigation-stack'
 import About from '../screens/about'
 import { MaterialIcons } from '@expo/vector-icons'
-import Header from '../shared/header'
 
 const openMenu = (navigation) => () => {
     navigation.openDrawer()

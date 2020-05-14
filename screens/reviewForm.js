@@ -39,7 +39,7 @@ export default function ReviewForm({ addReview }) {
                     <View>
                         <TextInput
                             style={globalStyles.input}
-                            placeholder='Review Title'
+                            placeholder='Drone Model'
                             // onChangeText runs whenever the user enters an input//
                             onChangeText={props.handleChange('title')}
                             value={props.values.title}
@@ -63,7 +63,7 @@ export default function ReviewForm({ addReview }) {
                         
                         <TextInput
                             style={globalStyles.input}
-                            placeholder='Rating (1-5)'
+                            placeholder='Drone Hub Rating (1-5)'
                             // onChangeText runs whenever the user enters an input//
                             onChangeText={props.handleChange('rating')}
                             value={props.values.rating}
