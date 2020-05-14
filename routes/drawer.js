@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     },
     drawerHeader: {
         backgroundColor: '#4EC0CC',
-        height: 140,
+        height: 120,
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
@@ -82,13 +82,13 @@ const styles = StyleSheet.create({
     },
     drawerHeaderText: {
         color: '#7AFFC1',
-        fontSize: 24,
+        fontSize: 30,
         fontWeight: 'bold'
     },
     drawerImage: {
-        margin: 10,
-        height: 60,
-        width: 60
+        margin: 8,
+        height: 70,
+        width: 70
     },
 });
 

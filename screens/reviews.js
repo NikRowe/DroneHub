@@ -16,18 +16,21 @@ export default function Reviews({ navigation }) {
             title: 'TinyHawk Freestyle - Emax',
             rating: 4.5,
             body: 'The EMAX TinyHawk has hit the gym yet again! All that weight lifting has upgraded its motors to 1103 7000kv! To go along with that extra power, it comes installed on a newly designed carbon fiber airframe that promises to support all the torque the motors will put out.',
+            price: '$160'
         },
         {
             key: '2',
             title: 'Mobula6 - Happymodel',
             rating: 5,
             body: 'Happymodel has done it again. Introducing the Mobula6 Micro FPV Whoop, which features the Runcam Nano3, Onboard Frsky Receiver, 5A BLheli_S 4-in-1 ESC and more! Pick a motor! Race(25000Kv) or Standard (19000Kv).',
+            price: '$85'
         },
         {
             key: '3',
             title: 'GTB 239 Cube - Diatone',
             rating: 4,
             body: 'In collaboration with KababFPV, the Diatone GTB 239 Cube Racing Drone is sure to impress you! Packed with high-end components, like the RunCam Nano 2 Camera, Mamba F411 Nano FC, TBS Unify Pro32 Nano VTX and more!',
+            price: '$139'
         },
     ])
 

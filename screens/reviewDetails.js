@@ -2,25 +2,29 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { globalStyles, images } from '../styles/global'
 import Card from '../shared/card'
-import { Rating } from 'react-native-elements'
+import { Rating, PricingCard } from 'react-native-elements'
 
 export default function ReviewDetails({ navigation }) {
 
     const rating = navigation.getParam('rating')
+    const title = navigation.getParam('title')
+    const body = navigation.getParam('body')
+    const price = navigation.getParam('price')
+
 
     return (
         <View style={globalStyles.container}>
             <Card>
                 <Text style={styles.reviewTitle}>
-                    {navigation.getParam('title')}
+                    {title}
                 </Text>
 
                 <Text style={styles.reviewBody}>
-                    "{navigation.getParam('body')}"
+                    "{body}"
                 </Text>
 
                 <View style={styles.rating}>
-                    <Text style={{fontWeight: 'bold'}}> Drone Hub rating: </Text>
+                    <Text style={{ fontWeight: 'bold' }}> Drone Hub rating: </Text>
                     <Rating
                         readonly
                         fractions={1}
@@ -31,6 +35,21 @@ export default function ReviewDetails({ navigation }) {
                         ratingImage={images.ratings[1]}
                     />
                 </View>
+                <PricingCard
+                    title='BNF'
+                    price={price}
+                    info={
+                        [
+                            'pyrodrone',
+                            'betafpv',
+                            'newbeedrone'
+                        ]
+                    }
+                    color='#CC4E94'
+                    button={{ title: 'Get in the Air', icon: 'flight-takeoff' }}
+                    onButtonPress={() => (console.log('PricingButtonPress:', `This will take you to the linked website of your choice above to purchase for ${price}` ))}
+                    wrapperStyle={{ backgroundColor: '#4EC0CC',  }}
+                />
             </Card>
         </View>
     )
@@ -50,7 +69,7 @@ const styles = StyleSheet.create({
     reviewTitle: {
         fontWeight: 'bold',
         fontSize: 25,
-        marginBottom: 20, 
+        marginBottom: 20,
         color: '#CC4E94'
     },
     reviewBody: {
