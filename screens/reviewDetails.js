@@ -60,6 +60,7 @@ export default function ReviewDetails({ navigation }) {
                                 'newbeedrone'
                             ]
                         }
+                        infoStyle={{ color: '#7AFFC1' }}
                         color='#CC4E94'
                         button={{ title: 'Get in the Air', icon: 'flight-takeoff' }}
                         onButtonPress={() => (
@@ -81,6 +82,7 @@ export default function ReviewDetails({ navigation }) {
                         wrapperStyle={{
                             backgroundColor: '#4EC0CC',
                         }}
+                        containerStyle={styles.pricingContainer}
 
                     />
                 </Animatable.View>
@@ -110,5 +112,10 @@ const styles = StyleSheet.create({
         fontStyle: 'italic',
         textAlign: 'center',
         fontFamily: 'indieFlower-regular'
+    },
+    pricingContainer: {
+        padding: 0,
+        borderWidth: 4,
+        borderColor: '#CC4E94'
     }
 })

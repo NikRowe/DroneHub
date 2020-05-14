@@ -44,7 +44,6 @@ export default function Reviews({ navigation }) {
         setModalOpen(false)
     }
 
-
     return (
         <View style={globalStyles.container}>
             <Modal
@@ -74,12 +73,14 @@ export default function Reviews({ navigation }) {
                 duration={3000}
                 delay={500}
             >
-                <MaterialIcons
-                    name='add'
-                    size={26}
-                    style={styles.modalToggle}
-                    onPress={() => setModalOpen(true)}
-                />
+                    <MaterialIcons
+                        name='add'
+                        size={26}
+                        style={styles.modalToggle}
+                        onPress={() => {
+                            setModalOpen(true)
+                        }}
+                    />
             </Animatable.View>
 
             {/* Displays state data visually as list = *item* is a default prop */}
