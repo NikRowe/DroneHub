@@ -1,8 +1,9 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
-import { createDrawerNavigator } from 'react-navigation-drawer'
+import { View, StyleSheet, Text, ScrollView, Image } from 'react-native';
+import { createDrawerNavigator, DrawerItems, DrawerContentScrollView } from 'react-navigation-drawer'
 import { createAppContainer } from 'react-navigation'
 import { MaterialIcons } from '@expo/vector-icons'
+import SafeAreaView, { SafeAreaProvider } from 'react-native-safe-area-view'
 
 // Stack Navigators that hold respective screens //
 import AboutStack from './aboutStack'
@@ -18,7 +19,7 @@ const rootDrawerNavigator = createDrawerNavigator(
                     <MaterialIcons
                         name='rate-review'
                         size={24}
-                        color ={ tintColor }
+                        color={tintColor}
                     />
                 ),
             }
@@ -30,20 +31,66 @@ const rootDrawerNavigator = createDrawerNavigator(
                     <MaterialIcons
                         name='info'
                         size={24}
-                        color ={ tintColor }
+                        color={tintColor}
                     />
                 ),
             }
         }
     },
     {
+        // props is passed to the component here since we're not using REDUX //
+        contentComponent: props => <CustomDrawerContentComponent {...props} />,
         drawerBackgroundColor: '#7AFFC1',
         contentOptions: {
-           activeTintColor: '#FFBABE',
-           inactiveTintColor: '#CC4E94',
-        }
+            activeTintColor: '#4EC0CC',
+            inactiveTintColor: '#CC4E94',
+        },
     }
 )
+
+const CustomDrawerContentComponent = (props) => (
+    <SafeAreaProvider>
+        <ScrollView>
+            <SafeAreaView
+                style={styles.container}
+                forceInset={{ top: 'always', horizontal: 'never' }}>
+                <View style={styles.drawerHeader}>
+                    <View style={{ flex: 1 }}>
+                        <Image source={require('../assets/DroneRating-1.png')} style={styles.drawerImage} />
+                    </View>
+                    <View style={{ flex: 2 }}>
+                        <Text style={styles.drawerHeaderText}>Drone Hub</Text>
+                    </View>
+                </View>
+                <DrawerItems {...props} />
+            </SafeAreaView>
+        </ScrollView>
+    </SafeAreaProvider>
+);
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    drawerHeader: {
+        backgroundColor: '#4EC0CC',
+        height: 140,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+        flexDirection: 'row'
+    },
+    drawerHeaderText: {
+        color: '#7AFFC1',
+        fontSize: 24,
+        fontWeight: 'bold'
+    },
+    drawerImage: {
+        margin: 10,
+        height: 60,
+        width: 60
+    },
+});
 
 
 export default createAppContainer(rootDrawerNavigator)
