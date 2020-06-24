@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import Navigator from './routes/drawer'
+import { YellowBox } from 'react-native'
+
+YellowBox.ignoreWarnings(['Warning: ...'])
+console.disableYellowBox = true
 
 const getFonts = () => Font.loadAsync({
   'bangers-regular': require('./assets/fonts/Bangers-Regular.ttf'),

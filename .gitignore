@@ -14,3 +14,6 @@ web-report/
 .DS_Store
 
 AdobeStock_212804732_Preview.psd
+
+# Local Netlify folder
+.netlify
